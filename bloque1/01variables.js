@@ -17,6 +17,6 @@ y = x;
 x = z;
 
 // deestructuring
-[x, y] = [y, x]
+// [x, y] = [y, x]
 
 console.log('Resultado ejercicio: x es', x, 'y es', y);
