@@ -50,5 +50,5 @@ var b = 20;
 var c = 10;
 var d = 25;
 //------a--------c------b------d---------
-
-var haySolape = true;
+var haySolape = (c >= a && c <= b) || (d >= a && d <= b);
+console.log(`Hay solape entre (${a}, ${b}) y (${c}, ${d})? ${haySolape}`);

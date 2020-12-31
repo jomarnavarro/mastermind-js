@@ -20,15 +20,15 @@ function local() {
     console.log(variableLocal);
 }
 local();
-//console.log(variableLocal); // No funciona
+console.log(variableLocal); // No funciona
 
 
 
-if (true) {
-    // scope de bloque 1
-} else {
-    // scope de bloque 2
-}
+// if (true) {
+//     // scope de bloque 1
+// } else {
+//     // scope de bloque 2
+// }
 
 
 

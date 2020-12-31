@@ -15,15 +15,20 @@ function addTask(taskList, taskDescription) {
 function printTaskList(taskList) {
     // 1. [] Sacar la basura
     // 2. [x] Lavar los platos
-    for (let i = 0; i < taskList.length; ++i) {
-        if (taskList[i].done) {
-            // tarea realiza
-            console.log((i + 1) + '. [x] ' + taskList[i].description);
-        } else {
-            // tarea no realizada
-            console.log((i + 1) + '. [ ] ' + taskList[i].description);
+    if(taskList.length == 0) {
+        console.log("No se introdujeron tareas.");
+    } else {
+        for (let i = 0; i < taskList.length; ++i) {
+            if (taskList[i].done) {
+                // tarea realiza
+                console.log((i + 1) + '. [x] ' + taskList[i].description);
+            } else {
+                // tarea no realizada
+                console.log((i + 1) + '. [ ] ' + taskList[i].description);
+            }
         }
     }
+    
 }
 // Primer modo: lectura de tareas necesarias
 
@@ -55,6 +60,9 @@ function markTaskAsDone(taskList, index) {
 }
 
 function checkAllDone(taskList) {
+    if(taskList.length == 0) {
+        return true;
+    }
     for (let task of taskList) {
         if (!task.done) return false;
     }
@@ -63,24 +71,29 @@ function checkAllDone(taskList) {
 
 function mode2(taskList) {
     printTaskList(taskList);
-    rl.question('Qué tarea has realizado? (1 - N)', function(taskNumber) {
-        switch (taskNumber) {
-            case 'fin':
-            case 'exit':
-                console.log('Bye bye');
-                rl.close();
-                break;
-            default:
-                markTaskAsDone(taskList, taskNumber - 1);
-                // Comprobar si estan todas hechas y cerrar el programa
-                if (checkAllDone(taskList)) {
-                    console.log('Muy bien! Has completado todo el trabajo!');
+    if(taskList.length == 0) {
+        console.log("Bye bye!");
+        rl.close();
+    } else {
+        rl.question('Qué tarea has realizado? (1 - N)', function(taskNumber) {
+            switch (taskNumber) {
+                case 'fin':
+                case 'exit':
+                    console.log('Bye bye');
                     rl.close();
-                } else {
-                    mode2(taskList);
-                }
-        }
-    });
+                    break;
+                default:
+                    markTaskAsDone(taskList, taskNumber - 1);
+                    // Comprobar si estan todas hechas y cerrar el programa
+                    if (checkAllDone(taskList)) {
+                        console.log('Muy bien! Has completado todo el trabajo!');
+                        rl.close();
+                    } else {
+                        mode2(taskList);
+                    }
+            }
+        });
+    }
 }
 
 mode1(taskList);

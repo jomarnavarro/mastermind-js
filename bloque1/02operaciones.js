@@ -36,3 +36,5 @@ console.log(sumaCombinada);
 
 //Ejercicio: Programa que nos diga los buenos dias
 // Resultado: 'Buenos dias NOMBRE'
+nombre = 'Omar';
+console.log(`Hola ${nombre}`);

@@ -40,12 +40,12 @@ var estudiantes = [
 ]
 for (var i = 0; i < estudiantes.length; i += 1) {
     var estudiante = estudiantes[i];
-    console.log(estudiante.nombre, estudiante.nota);
+    console.log(`El estudiante ${estudiante.nombre} obtuvo ${estudiante.nota}`);
 }
 
 // Iterar sobre vectores y objetos
 for (var estudiante of estudiantes) {
-    console.log(estudiante.nombre, estudiante.nota);
+    console.log(`El estudiante ${estudiante.nombre} obtuvo ${estudiante.nota}`);
 }
 
 var estudianteAuxiliar = {
@@ -54,5 +54,5 @@ var estudianteAuxiliar = {
 }
 
 for (var key in estudianteAuxiliar) {
-    console.log(key, estudianteAuxiliar[key]);
+    console.log(`El estudiante ${key} obtuvo ${estudianteAuxiliar[key]}`);
 }
